@@ -1,4 +1,4 @@
-```python
+python
 """A bounded TCP port scanner for authorized testing."""
 
 from __future__ import annotations

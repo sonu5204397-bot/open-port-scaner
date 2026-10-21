@@ -56,7 +56,7 @@ Flask is the only external dependency. Install it from `requirements.txt`.
 
 2. Open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
 3. Enter the IP address or hostname you are authorized to test.
-4. Enter a starting port and ending port. You can scan up to 256 ports per scan. For a single port, enter the same port number in both fields.
+4. Enter a starting port and ending port. You can scan up to 5000 ports per scan. For a single port, enter the same port number in both fields.
 5. Confirm that you are authorized to test the target, then select **Start scan**.
 6. Review the results. Open TCP ports appear with their port number and registered service name where available. If none are detected, the page reports that no open ports were found in the range.
 7. Stop the application with **Ctrl+C** in the terminal when finished.

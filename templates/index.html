@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>PORT SCANNER (PYTHON)</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <span class="eyebrow">AUTHORIZED NETWORK TESTING</span>
+      <h1>PORT SCANNER (PYTHON)</h1>
+      <p>Check a specific TCP port range on a host you are authorized to test.</p>
+    </header>
+
+    <form id="scan-form" class="scan-form">
+      <label for="target-host">Target IP address or hostname</label>
+      <input
+        id="target-host"
+        name="host"
+        type="text"
+        placeholder="127.0.0.1 or localhost"
+        autocomplete="url"
+        maxlength="253"
+        required
+      >
+      <div class="port-fields">
+        <div>
+          <label for="start-port">Start port</label>
+          <input id="start-port" name="start_port" type="number" min="1" max="65535" value="1" required>
+        </div>
+        <div>
+          <label for="end-port">End port</label>
+          <input id="end-port" name="end_port" type="number" min="1" max="65535" value="1024" required>
+        </div>
+      </div>
+      <label class="authorization">
+        <input id="authorized" name="authorized" type="checkbox" required>
+        <span>I own this system or have explicit authorization to test it.</span>
+      </label>
+      <p class="hint">Scans TCP ports only, one host per scan, up to 256 ports at a time.</p>
+      <button id="scan-button" type="submit">
+        <span class="button-label">Start scan</span>
+        <span class="spinner" aria-hidden="true"></span>
+      </button>
+      <p id="scan-progress" class="scan-progress" role="status" hidden></p>
+    </form>
+
+    <section id="results" class="results" aria-live="polite" hidden>
+      <div class="results-heading">
+        <div>
+          <span class="eyebrow">SCAN RESULTS</span>
+          <h2 id="result-summary"></h2>
+        </div>
+        <span id="status-badge" class="status-badge"></span>
+      </div>
+      <p id="result-target" class="result-target"></p>
+      <div id="empty-results" class="empty-results" hidden>No open ports were found in this range.</div>
+      <div id="ports-wrap" hidden>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th scope="col">Port</th><th scope="col">Service</th><th scope="col">Status</th></tr>
+            </thead>
+            <tbody id="ports-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <p id="error-message" class="error-message" role="alert" hidden></p>
+    <footer class="disclaimer">
+      <strong>Use responsibly:</strong> Scanning is permitted only on systems you own or have explicit
+      authorization to test. Unauthorized scanning may violate policies or laws.
+    </footer>
+  </main>
+</body>
+</html>

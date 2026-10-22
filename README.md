@@ -96,7 +96,7 @@ python -m unittest discover -s tests -v
 ## Scope and safety
 
 - The scanner checks TCP ports on one resolved IP address per scan.
-- The allowed range is limited to 256 ports.
+- The allowed range is limited to 5000 ports.
 - A service name is a standard port mapping, not confirmation of the software actually running.
 - The app binds to `127.0.0.1` by default. Do not expose it publicly without appropriate security controls.
 - Scan only systems you own or have explicit authorization to test.
